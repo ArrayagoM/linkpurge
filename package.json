@@ -1,0 +1,10 @@
+{
+  "name": "linkpurge",
+  "version": "1.0.0",
+  "description": "Herramienta de limpieza de URLs 100% Client-Side",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Proyecto estático listo.'",
+    "build": "echo 'No se requiere build para HTML/CSS/JS puro.'"
+  }
+}
