@@ -1,0 +1,299 @@
+/* Paleta de Colores: Púrpura (Confianza) y Verde Esmeralda (Éxito) */
+:root {
+  --color-primary: #5a009c; /* Púrpura oscuro principal */
+  --color-secondary: #00bf63; /* Verde Esmeralda para éxito/CTA */
+  --color-background: #1a1a2e; /* Fondo oscuro tecnológico */
+  --color-text: #eaeaea; /* Texto claro */
+  --color-card: #2b2b4d; /* Fondo de tarjetas/input */
+  --color-hover: #7e4f9f;
+  --font-family: 'Inter', sans-serif;
+}
+
+/* 1. Reset y Tipografía (SEO y UX) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  /* Animación de entrada Profesional */
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* 2. Estructura Principal */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px 0;
+}
+h1 {
+  font-size: 3em;
+  font-weight: 700;
+  color: var(--color-secondary); /* Color llamativo */
+  letter-spacing: 2px;
+}
+main {
+  width: 100%;
+  max-width: 700px;
+  background-color: var(--color-card);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(20px); /* Inicial para la animación de entrada */
+  animation: slideIn 0.8s ease-out 0.3s forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3. Input y Botones */
+textarea,
+input[type='text'] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-size: 1em;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+textarea:focus,
+input:focus {
+  border-color: var(--color-secondary);
+  outline: none;
+}
+.cta-button,
+.secondary-button {
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-button {
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+  width: 100%; /* Botón grande, claro y enfocado (Neuromarketing) */
+}
+.cta-button:hover {
+  background-color: #00e07a;
+  transform: translateY(-2px); /* Micro-animación (interacción) */
+  box-shadow: 0 5px 15px rgba(0, 191, 99, 0.4);
+}
+.secondary-button {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  width: auto;
+  margin-top: 10px;
+}
+.secondary-button:hover {
+  background-color: var(--color-hover);
+}
+
+/* 4. Sección de Resultados */
+#result-section {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px dashed var(--color-primary);
+  border-radius: 8px;
+  animation: resultPop 0.5s ease-out forwards;
+}
+@keyframes resultPop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+#resultUrl {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-secondary);
+  cursor: text;
+  user-select: all;
+}
+h2 {
+  color: var(--color-secondary);
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.icon-clean {
+  font-size: 1.2em;
+  margin-right: 10px;
+  animation: pulse 1.5s infinite; /* Nano-animación: llamar la atención al resultado */
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+/* 5. Spinner de Carga (Feedback de Velocidad) */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid var(--color-text);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.8s linear infinite;
+  margin-left: 10px;
+  display: none; /* Oculto por defecto */
+}
+.button-loading .spinner {
+  display: block;
+}
+.button-loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Footer y Responsividad */
+footer {
+  margin-top: 30px;
+  font-size: 0.8em;
+  opacity: 0.7;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2em;
+  }
+  main {
+    padding: 25px;
+  }
+  .cta-button {
+    font-size: 1em;
+  }
+}
+
+#analysis-section {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #38385e; /* Un tono más claro que la tarjeta principal */
+  border-radius: 8px;
+  border-left: 5px solid var(--color-secondary); /* Barra de énfasis */
+}
+.icon-report {
+  color: var(--color-secondary);
+  margin-right: 10px;
+}
+h3 {
+  color: var(--color-text);
+  margin-top: 15px;
+  font-size: 1.2em;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+}
+
+/* Comparativa de URLs (Antes vs. Después) */
+.url-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+.label {
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: 5px;
+}
+.url-code {
+  display: block;
+  padding: 10px;
+  background-color: var(--color-background);
+  border-radius: 4px;
+  word-break: break-all;
+  font-size: 0.9em;
+}
+/* Estilo para el URL original que se va a limpiar */
+.before-url .url-code {
+  opacity: 0.7;
+}
+
+/* Lista de Parámetros Eliminados */
+.params-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+.params-list li {
+  background-color: var(--color-card);
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  color: #ff6b6b; /* Rojo para indicar 'eliminado' */
+  font-family: monospace;
+  font-size: 0.9em;
+  animation: slideInParam 0.3s ease-out forwards; /* Micro-animación */
+}
+@keyframes slideInParam {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.no-removed-msg {
+  color: #7e8ef1; /* Azul suave para mensaje de confirmación */
+  font-style: italic;
+  margin-top: 15px;
+}
