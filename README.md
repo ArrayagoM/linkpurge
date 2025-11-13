@@ -74,7 +74,7 @@ Este proyecto está bajo la Licencia **MIT**. Consulte el archivo `LICENSE.md` p
 Desarrollado por **Juan Martín Arrayago** (Web Development & Robotics/IoT Engineering).
 
 * **https://tinchodev.it.com/**
-* **https://github.com/ArrayagoM/linkpurge**
+* **https://github.com/ArrayagoM/linkpurge/tree/main**
 
 ---
 
